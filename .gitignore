@@ -1,0 +1,73 @@
+# macOS 系统文件 / macOS System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 临时文件 / Temporary Files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.#*
+
+# 日志文件 / Log Files
+*.log
+logs/
+*.out
+
+# 备份文件 / Backup Files
+*.backup
+*.bak
+*.orig
+*.save
+
+# IDE 和编辑器文件 / IDE and Editor Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.atom/
+.brackets.json
+
+# Shell 脚本相关 / Shell Script Related
+*.pid
+*.lock
+
+# 用户自定义配置 / User Custom Config
+config.local
+.env
+.env.local
+
+# 测试输出 / Test Output
+test-output/
+*.test
+
+# 压缩文件 / Archive Files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# 运行时文件 / Runtime Files
+*.pid
+*.sock
+
+# 本地开发文件 / Local Development Files
+local/
+dev/
+debug/
+
+# 文档生成文件 / Generated Documentation
+docs/_build/
+*.pdf
+*.epub
+
+# 其他 / Others
+node_modules/
+.npm
+.cache/
