@@ -8,7 +8,7 @@
 
 ### 📖 项目简介
 
-这是一个用于快速修改 JetBrains 系列产品（特别是 PyCharm）SessionID 的 macOS Shell 脚本工具。该工具可以帮助开发者轻松管理和更新 Augment Code 插件的会话标识符。
+这是一个用于快速修改 JetBrains 系列产品（特别是 PyCharm）SessionID 的 macOS Shell 脚本工具。该工具可以无限续杯 Augment Code。
 
 ### ✨ 主要功能
 
@@ -66,7 +66,7 @@ free-augmentcode/
 
 ### 📖 Project Description
 
-This is a macOS Shell script tool for quickly modifying SessionID of JetBrains products (especially PyCharm). The tool helps developers easily manage and update session identifiers for the Augment Code plugin.
+This is a macOS Shell script tool for quickly modifying the SessionID of JetBrains products (especially PyCharm). This tool can refill Augment Code infinitely.
 
 ### ✨ Key Features
 
