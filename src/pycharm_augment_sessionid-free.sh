@@ -26,18 +26,27 @@ fi
 echo
 echo "🔍 查找JetBrains产品配置目录..."
 
-# 查找所有可能的PyCharm版本目录
-for dir in "$CONFIG_BASE"/PyCharm*; do
-    if [ -d "$dir" ]; then
+# 查找所有可能的JetBrains产品版本目录
+for dir in "$CONFIG_BASE"/*; do
+    # 检查是否为PyCharm相关目录
+    if [[ "$(basename "$dir")" == PyCharm* ]]; then
         VERSION_DIR=$(basename "$dir")
         
-        echo
-        echo "🔄 处理版本: $VERSION_DIR"
+        # 检查字体配置目录
+        FONT_CONFIG_PATH="$dir/options/font.options.xml"
+        if [ -f "$FONT_CONFIG_PATH" ]; then
+            echo "🔍 检测到字体配置文件，跳过此目录以保护所有原有设置"
+            continue  # 完全跳过包含字体设置的目录
+        fi
         
+        # 检查并创建options目录
         OPTIONS_DIR="$dir/options"
         if [ ! -d "$OPTIONS_DIR" ]; then
             mkdir -p "$OPTIONS_DIR"
         fi
+        
+        echo
+        echo "🔄 处理版本: $VERSION_DIR"
         
         IDE_GENERAL_FILE="$OPTIONS_DIR/ide.general.xml"
         
@@ -53,13 +62,6 @@ for dir in "$CONFIG_BASE"/PyCharm*; do
             cp "$IDE_GENERAL_FILE" "$IDE_GENERAL_FILE.backup.$(date +'%Y%m%d_%H%M%S')"
         else
             echo " ℹ️ 创建新配置文件: $IDE_GENERAL_FILE"
-        fi
-        
-        # 检查并保留字体配置文件
-        FONT_CONFIG_FILE="$dir/options/font.options.xml"
-        if [ -f "$FONT_CONFIG_FILE" ]; then
-            echo "🔍 检测到字体配置文件，跳过修改以保留中文设置"
-            continue
         fi
         
         # 使用更精确的XML操作方式修改SessionID

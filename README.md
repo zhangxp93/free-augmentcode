@@ -49,6 +49,7 @@
 1. **重启应用**：修改后需要重启 JetBrains 产品以使配置生效
 2. **备份保护**：原配置文件会自动备份，文件名包含时间戳
 3. **恢复方法**：如需恢复，可以删除相关配置或使用备份文件
+4. **其他注意事项**：运行前必须退出augment code账号
 
 ### 📁 项目结构
 
@@ -107,6 +108,7 @@ This is a macOS Shell script tool for quickly modifying the SessionID of JetBrai
 1. **Restart Application**: Restart JetBrains products after modification for changes to take effect
 2. **Backup Protection**: Original configuration files are automatically backed up with timestamps
 3. **Recovery Method**: To restore, delete related configurations or use backup files
+4. **Other Considerations**: Before running, make sure to log out of Augment Code
 
 ### 📁 Project Structure
 
