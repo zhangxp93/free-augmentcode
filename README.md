@@ -1,4 +1,8 @@
-# Free Augment Code - SessionID 修改工具
+# Free Augment Code - SessionID 修改工具 v1.2.0
+
+[![Version](https://img.shields.io/badge/version-v1.2.0-blue.svg)](https://github.com/your-repo/free-augmentcode)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-macOS-lightgrey.svg)](https://www.apple.com/macos/)
 
 [English](#english) | [中文](#中文)
 
@@ -56,10 +60,17 @@
 ```
 free-augmentcode/
 ├── src/
-│   └── pycharm_augment_sessionid-free.sh  # 主要脚本文件
+│   └── pycharm_augment_sessionid-free.sh  # 主要脚本文件 v1.2.0
+├── change.md                               # 版本变更记录
 ├── LICENSE                                 # MIT 许可证
 └── README.md                              # 项目说明文档
 ```
+
+### 📊 版本信息
+
+- **当前版本**: v1.2.0
+- **发布日期**: 2025-06-15
+- **兼容性**: macOS 10.15+ / PyCharm 2020.1+
 
 ---
 
@@ -115,10 +126,17 @@ This is a macOS Shell script tool for quickly modifying the SessionID of JetBrai
 ```
 free-augmentcode/
 ├── src/
-│   └── pycharm_augment_sessionid-free.sh  # Main script file
+│   └── pycharm_augment_sessionid-free.sh  # Main script file v1.2.0
+├── change.md                               # Version changelog
 ├── LICENSE                                 # MIT License
 └── README.md                              # Project documentation
 ```
+
+### 📊 Version Information
+
+- **Current Version**: v1.2.0
+- **Release Date**: 2025-06-15
+- **Compatibility**: macOS 10.15+ / PyCharm 2020.1+
 
 ### 🤝 Contributing
 

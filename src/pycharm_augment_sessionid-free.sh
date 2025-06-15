@@ -1,7 +1,10 @@
 #!/bin/zsh
 # macOS Shell版本的SessionID快速修改工具
+# Version: v1.2.0
+# Author: Free Augment Code Project
+# Last Updated: 2025-06-15
 
-echo "🔧 macOS SessionID快速修改工具"
+echo "🔧 macOS SessionID快速修改工具 v1.2.0"
 echo "==============================="
 if [ -z "$1" ]; then
     echo " ℹ️ 未提供自定义SessionID，将自动生成一个随机UUID."
