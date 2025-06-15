@@ -55,16 +55,34 @@ for dir in "$CONFIG_BASE"/PyCharm*; do
             echo " ℹ️ 创建新配置文件: $IDE_GENERAL_FILE"
         fi
         
-        # 写入新的SessionID
-        cat > "$IDE_GENERAL_FILE" << EOL
-<application>
-  <component name="PropertiesComponent">
-    <property name="augment.session.id" value="$CUSTOM_SESSION_ID" />
-  </component>
-</application>
-EOL
+        # 检查并保留字体配置文件
+        FONT_CONFIG_FILE="$dir/options/font.options.xml"
+        if [ -f "$FONT_CONFIG_FILE" ]; then
+            echo "🔍 检测到字体配置文件，跳过修改以保留中文设置"
+            continue
+        fi
         
-        echo "✅ 已设置SessionID: $CUSTOM_SESSION_ID"
+        # 使用更精确的XML操作方式修改SessionID
+        if [ -f "$IDE_GENERAL_FILE" ]; then
+            # 备份原文件
+            cp "$IDE_GENERAL_FILE" "$IDE_GENERAL_FILE.backup.$(date +'%Y%m%d_%H%M%S')"
+            
+            # 使用xmlstarlet精确修改节点
+            if xmlstarlet sel -t -v "//property[@name='augment.session.id']/@value" "$IDE_GENERAL_FILE" > /dev/null 2>&1; then
+                xmlstarlet ed -L -u "//property[@name='augment.session.id']/@value" -v "$CUSTOM_SESSION_ID" "$IDE_GENERAL_FILE"
+            else
+                xmlstarlet ed -L -s "/application/component" -t elem -n property -v "" \
+                    -i "/application/component/property[last()]" -t attr -n name -v "augment.session.id" \
+                    -i "/application/component/property[last()]" -t attr -n value -v "$CUSTOM_SESSION_ID" \
+                    "$IDE_GENERAL_FILE"
+            fi
+        else
+            echo " ℹ️ 创建新配置文件: $IDE_GENERAL_FILE"
+            xmlstarlet ed -L -s "/application/component" -t elem -n property -v "" \
+                -i "/application/component/property[last()]" -t attr -n name -v "augment.session.id" \
+                -i "/application/component/property[last()]" -t attr -n value -v "$CUSTOM_SESSION_ID" \
+                "$IDE_GENERAL_FILE"
+        fi
     fi
 done
 
